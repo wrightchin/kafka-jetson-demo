@@ -1,0 +1,15 @@
+version: "3.8"
+services: 
+  src:
+      image: kafka-jetson-demo
+      build:
+          context: ./src/
+          dockerfile: Dockerfile            
+      devices: 
+          - /dev/video0:/dev/video0
+      command: python3 -u main.py
+      working_dir: /app
+      volumes: 
+          - ./src/main.py:/app/main.py
+          - /tmp/.X11-unix:/tmp/.X11-unix
+      hostname: src
