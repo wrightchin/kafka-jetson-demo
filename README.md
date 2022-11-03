@@ -13,7 +13,8 @@ Jetson Nano
 
 ### Usages
 1. Create Kafka cluster in OpenShift.
-2. Create Kafka Bridge in OpenShift.
+2. Create Kafka Topic in Openshift.
+3. Create Kafka Bridge in OpenShift.
 
 After the Kafka Bridge createion, expose the Kafka Bridge.
 ```sh
@@ -31,7 +32,7 @@ Check that the Kafka Bridge is working.
 $ curl -v http://<route>/healthy
 ```
 
-3. Receiving Message from Jetson (Consumers).
+4. Receiving Message from Jetson (Consumers).
 ```sh
 $ oc -n <project_name> run kafka-consumer -ti \
 --image=registry.redhat.io/amq7/amq-streams-kafka-31-rhel8:2.1.0 \
@@ -43,9 +44,9 @@ $ oc -n <project_name> run kafka-consumer -ti \
 --from-beginning
 ```
 
-4. Start the Jetson Nano (Producer).
+5. Start the Jetson Nano (Producer).
 ```sh
 git clone this project and change the path of the post request,
-$ docker-compsoe up
+$ docker-compose up
 ```
 Done!
